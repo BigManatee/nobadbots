@@ -9,7 +9,7 @@ class ComposerStaticInit719a64b5570725410b91ff652866d3ef
     public static $prefixesPsr0 = array (
         'N' => 
         array (
-            'NoBots' => 
+            'NoBadBots' => 
             array (
                 0 => __DIR__ . '/../..' . '/src',
             ),
