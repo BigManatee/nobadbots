@@ -9,7 +9,6 @@
             "email": "tylerjc@hotmail.co.uk"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.0"
     },

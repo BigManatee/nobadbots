@@ -5,6 +5,7 @@ namespace NoBadBots;
 class BeGone {
 
 	public static $uas = ['headlesschrome','gotnoheadeua','nikto','sqlmap','curl','planetwork','purebot','pycurl','skygrid','sucker','turnit','vikspid','zmeu','zune','dotbot','feedfinder','flicky','ia_archiver','kmccrew','libwww','nutch','binlar','casper','checkprivacy','cmsworldmap','comodo','curious','diavol','doco','ZmEu','python'];
+	public static $bips = ['178.79.138.22'];
 
 	public static $badness = 0;
 
@@ -24,6 +25,16 @@ class BeGone {
     		}
     	}
 
+    	if(!empty($_SERVER['REMOTE_ADDR'])){
+    		foreach(self::$bips as $ip){
+	    		if(self::getUserIP() == $ua) {
+    				self::$badness++;
+    			}
+    		}
+    	} else {
+    		self::$badness++;
+    	}
+
         return self::$badness;
     }
 
@@ -33,5 +44,19 @@ class BeGone {
         header("Content-Length: ".filesize('10G.gzip'));
         if (ob_get_level()) ob_end_clean();
         readfile('10G.gzip');
+	}
+
+	public static function getUserIP() {
+    	if( array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER) && !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {
+	        if (strpos($_SERVER['HTTP_X_FORWARDED_FOR'], ',')>0) {
+            	$addr = explode(",",$_SERVER['HTTP_X_FORWARDED_FOR']);
+            	return trim($addr[0]);
+        	} else {
+	            return $_SERVER['HTTP_X_FORWARDED_FOR'];
+        	}
+    	}
+    	else {
+	        return $_SERVER['REMOTE_ADDR'];
+	    }
 	}
 }
