@@ -35,6 +35,11 @@ class BeGone {
     		self::$badness++;
     	}
 
+    	/**
+    	 * TOD:
+    	 * if $badness > x (5?? need a few more conditions) log ip and / or die(some 500 page or something)
+    	 */
+
         return self::$badness;
     }
 
