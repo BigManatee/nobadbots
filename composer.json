@@ -1,0 +1,21 @@
+{
+    "name": "rooftyler/nobots",
+    "description": "Detect possible web scrapers or bad bots",
+    "type": "libary",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tyler J",
+            "email": "tylerjc@hotmail.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "NoBots": "src/"
+        }
+    }
+}
