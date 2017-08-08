@@ -2,6 +2,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use NoBots\BeGone;
+use NoBadBots\BeGone;
 
 echo BeGone::shoo();

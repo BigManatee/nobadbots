@@ -1,6 +1,6 @@
 <?php 
 
-namespace NoBots;
+namespace NoBadBots;
 
 class BeGone
 {

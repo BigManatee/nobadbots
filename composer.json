@@ -1,6 +1,6 @@
 {
-    "name": "rooftyler/nobots",
-    "description": "Detect possible web scrapers or bad bots",
+    "name": "rooftyler/nobadbots",
+    "description": "Detect possible web scrapers or bad bots and deny them access",
     "type": "libary",
     "license": "MIT",
     "authors": [
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-0": {
-            "NoBots": "src/"
+            "NoBadBots": "src/"
         }
     }
 }
