@@ -28,17 +28,16 @@ class BeGone {
     	if(!empty($_SERVER['REMOTE_ADDR'])){
     		foreach(self::$bips as $ip){
 	    		if(self::getUserIP() == $ua) {
-    				self::$badness++;
+    				self::$badness = self::$badness + 2;
     			}
     		}
     	} else {
     		self::$badness++;
     	}
 
-    	/**
-    	 * TOD:
-    	 * if $badness > x (5?? need a few more conditions) log ip and / or die(some 500 page or something)
-    	 */
+        if(http_response_code() == 404){
+            self::$badness++;
+        }
 
         return self::$badness;
     }
@@ -64,4 +63,10 @@ class BeGone {
 	        return $_SERVER['REMOTE_ADDR'];
 	    }
 	}
+
+    public static function get_http_response_code($theURL) {
+        $headers = get_headers($theURL);
+        return substr($headers[0], 9, 3);
+    }
+
 }
